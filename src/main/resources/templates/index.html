@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+
+
+</head>
+
+<body>
+	<div class="content-wrapper">
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="text-center">
+					<h3>CRUD para Cadastro de Usuarios</h3>
+				</div>
+			</div>
+		</section>
+		<section class="content">
+			<form id="cadastroUsuario" method="POST">
+				<input hidden="hidden" id="id_pessoa" name="id_pessoa" />
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<h4 class="card-title ">
+										<i class="fas fa-minus"></i> Dados Básicos
+									</h4>
+									<div class="card-tools">
+										<button type="button" class="btn btn-tool" data-card-widget="collapse">
+											<i class="fas fa-minus"></i>
+										</button>
+									</div>
+								</div>
+
+								<div class="card-body">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="row">
+															<div class="col-6 col-md-4">
+																<div class="row">
+																	<div class="col-2">
+																		<label for="id" class="form-label">ID</label>
+																		<input type="text" class="form-control" id="id"
+																			readonly="readonly">
+																	</div>
+
+																	<div class="col form-group">
+																		<label class="required" for="nome">Nome </label>
+																		<input th:type="text" id="nome" name="nome"
+																			required="required" autofocus="autofocus"
+																			class="form-control input-sm" />
+																	</div>
+																</div>
+															</div>
+															<div class="col-1">
+																<label for="idade" class="form-label">Idade</label>
+																<input type="number" class="form-control" id="idade">
+															</div>
+															<div class="col-3">
+																<div class="form-group">
+																	<label class="required" for="nomeMae">Nome mãe
+																	</label>
+																	<input type="text" id="nomeMae" name="nomeMae"
+																		class="form-control " />
+																</div>
+															</div>
+															<div class="col-3 col-md-4">
+																<div class="form-group">
+																	<label for="nomePai">Nome Pai</label>
+																	<input type="text" id="nomePai" name="nomePai"
+																		class="form-control  input-sm text-uppercase" />
+																</div>
+															</div>
+														</div>
+
+														<div class="row">
+															<div class="col-sm-4 col-md-4">
+																<div class="form-group">
+																	<label class="required" for="selectSexo">Sexo
+																	</label>
+																	<select class="form-control input-sm"
+																		id="selectSexo">
+																		<option value="" disabled>Selecione</option>
+																		<option>Masculino</option>
+																		<option>Feminino</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-sm-4 col-md-4">
+																<div class="form-group">
+																	<label for="cpf">CPF</label>
+																	<input type="text" id="cpf" name="cpf"
+																		class="form-control input-sm cpf "
+																		placeholder="000.000.000-00" />
+																</div>
+															</div>
+															<div class="col-4">
+																<div class="form-group">
+																	<label for="nomeSocial">Nome Social</label>
+																	<input class="form-control" type="text"
+																		id="nomeSocial" name="nomeSocial">
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label for="selectNacionalidade">Nacionalidade</label>
+															<select class="form-control input-sm select2"
+																id="nacionalidade">
+																<option value="" disabled>Selecione</option>
+																<option value="">Brasil</option>
+																<option value="">Paraguai</option>
+																<option value="">Argentina</option>
+																<option value="">Colombia</option>
+																<option value="">Peru</option>
+																<option value="">Bolivia</option>
+																<option value="">Chile</option>
+
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group div_estado" id="div_estado">
+															<label for="selectEstado">Estado</label>
+															<select class="form-control input-sm select2"
+																id="selectEstado">
+																<option value="" disable>Selecione</option>
+																<option value="">Maranhão</option>
+																<option value="">Goiás</option>
+																<option value="">Mato Grosso</option>
+																<option value="">Mato Grosso do Sul </option>
+																<option value="">São Paulo</option>
+																<option value="">Rio de Janeiro</option>
+
+															</select>
+														</div>
+													</div>
+
+													<div class="col-sm-4">
+														<div class="form-group div_cidade" id="div_cidade">
+															<label for="selectCidadeNaturalidade"> Naturalidade</label>
+															<select class="form-control input-sm select2"
+																id="naturalidade">
+																<option value="" disabled>Selecione</option>
+																<option>Açailândia</option>
+																<option>Afonso Cunha</option>
+																<option> Água Doce do Maranhão</option>
+																<option> Alcântara</option>
+																<option> Aldeias Altas</option>
+																<option> Altamira do Maranhão</option>
+																<option> Alto Alegre do Maranhão</option>
+																<option> Alto Alegre do Pindaré</option>
+																<option> Alto Parnaíba</option>
+																<option> Amapá do Maranhão</option>
+																<option> Amarante do Maranhão</option>
+																<option> Anajatuba</option>
+																<option> Anapurus</option>
+																<option> Apicum-Açu</option>
+																<option> Araguanã</option>
+																<option> Araioses</option>
+																<option> Arame</option>
+																<option> Arari</option>
+																<option value="">Viana</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			</form>
+			<div class="float-right mt-2">
+				<button type="button" class="btn btn-primary" onclick="salvarUsuario()">Salvar</button>
+				<button type="button" class="btn btn-secondary"
+					onclick="document.getElementById('cadastroUsuario').reset();">Novo</button>
+				<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+					data-bs-target="#modalPesquisar">Pesquisar</button>
+			</div>
+		</section>
+	</div>
+
+
+	<!-- Modal para exibir pesquisar usuario -->
+	<div class="modal fade" id="modalPesquisar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Pesquisa de Usuarios</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="buscaUsuario" class="col-form-label">Informe o nome para pesquisar:</label>
+							<input type="text" class="form-control" id="buscaUsuario">
+						</div>
+						<button type="button" class="btn btn-success" onclick="pesquisarUsuario()">Buscar</button>
+					</form>
+					<div class="table-responsive">
+						<table class="table mt-2" id="tabelaLista">
+							<thead>
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">Nome</th>
+									<th scope="col">Idade</th>
+									<th scope="col">Mãe</th>
+									<th scope="col">NomeSocial</th>
+									<th scope="col">Pai</th>
+									<th scope="col">Sexo</th>
+									<th scope="col">CPF</th>
+									<th scope="col">Editar</th>
+									<th scope="col">Deletar</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+	<!-- 
+	<script>
+
+
+		function deleteUsuario(id) {
+			if (confirm('Deseja deletar o usuario?')) {
+				$.ajax({
+					method: "DELETE",
+					url: "delete",
+					data: "iduser=" + id,
+					success: function (response) {
+
+						$('#' + id).remove();
+						alert(response);
+					}
+				}).fail(function (xhr, status, errorThrown) {
+					alert("Erro ao deletar usuario por id: " + xhr.responseText);
+				});
+			}
+		}
+
+
+		function pesquisarUsuario() {
+			var nomeCampo = $('#buscaUsuario').val();
+			if (nomeCampo != null && nomeCampo.trim() != '') {
+
+				$.ajax({
+					method: "GET",
+					url: "buscarPorNome",
+					data: "name=" + nomeCampo,
+					success: function (response) {
+						$('#tabelaLista > tbody > tr').remove();
+						for (var i = 0; i < response.length; i++) {
+							$('#tabelaLista > tbody')
+								.append('<tr id="' + response[i].id + '"><td>'
+									+ response[i].id + '</td><td>'
+									+ response[i].nome + '</td><td>'
+									+ response[i].idade + '</td><td>'
+									+ response[i].nomeMae + '</td><td>'
+									+ response[i].nomePai + '</td><td>'
+									+ response[i].sexo + '</td><td>'
+									+ response[i].cpf + '</td><td><button type="button" class="btn btn-primary" onclick="editarUsuario('
+									+ response[i].id + ')">Ver</button></td><td><button type="button" class="btn btn-danger" onclick="deleteUsuario('
+									+ response[i].id + ')">Excluir</button></td></tr>');
+						}
+					}
+				}).fail(function (xhr, status, errorThrown) {
+					alert("Erro ao salvar usuario: " + xhr.responseText);
+				});
+			}
+
+		}
+
+		function editarUsuario(id) {
+			$.ajax({
+				method: "GET",
+				url: "buscarPorId",
+				data: "id=" + id,
+				success: function (response) {
+
+					$("#id").val(response.id);
+					$("#nome").val(response.nome);
+					$("#idade").val(response.idade);
+					$("#nomeMae").val(response.nomeMae);
+					$("#nomePai").val(response.nomePai);
+					$("#cpf").val(response.cpf);
+					$("#selectSexo").val(response.sexo);
+					$("#nacionalidade").val(response.nacionalidade);
+					$("#naturalidade").val(response.naturalidade);
+					$("#selectEstado").val(response.estado);
+
+					$('#modalPesquisar').modal('hide');
+				}
+			}).fail(function (xhr, status, errorThrown) {
+				alert("Erro ao buscar usuario por id: " + xhr.responseText);
+			});
+		}
+
+		function salvarUsuario() {
+			var id = $("#id").val();
+			var nome = $("#nome").val();
+			var idade = $("#idade").val();
+			var nomeMae = $("#nomeMae").val();
+			var nomePai = $("#nomePai").val();
+			var cpf = $("#cpf").val();
+			var sexo = $("#selectSexo").val();
+			var nacionalidade = $("#nacionalidade").val();
+			var naturalidade = $("#naturalidade").val();
+			var estado = $("#selectEstado").val();
+
+			$.ajax({
+				method: "POST",
+				url: "salvar",
+				data: JSON.stringify({
+					id: id,
+					nome: nome,
+					idade: idade,
+					nomeMae: nomeMae,
+					nomePai: nomePai,
+					sexo: sexo,
+					cpf: cpf,
+					nacionalidade: nacionalidade,
+					naturalidade: naturalidade,
+					estado: estado
+				}),
+				contentType: "application/json; charset=utf-8",
+				success: function (response) {
+					$("#id").val(response.id);
+					alert("Salvou com sucesso!");
+				}
+			}).fail(function (xhr, status, errorThrown) {
+				alert("Erro ao salvar usuario: " + xhr.responseText);
+			});
+		}
+	</script> -->
+
+	<script src="js/salvarUsuario.js"></script>
+	<script src="js/pesquisarUsuario.js"></script>
+	<script src="js/editarUsuario.js"></script>
+	<script src="js/deleteUsuario.js"></script>
+</body>
+
+</html>
