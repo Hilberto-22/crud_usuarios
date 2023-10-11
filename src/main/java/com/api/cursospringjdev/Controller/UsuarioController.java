@@ -2,44 +2,34 @@ package com.api.cursospringjdev.Controller;
 
 import java.util.List;
 
-import com.api.cursospringjdev.Model.Usuario;
-import com.api.cursospringjdev.Repository.UsuarioRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-import java.lang.String;
+import com.api.cursospringjdev.Model.Usuario;
+import com.api.cursospringjdev.Repository.UsuarioRepository;
 
-@RestController
-public class DemoController {
+@Controller
+@RequestMapping("/usuarios")
+public class UsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @RequestMapping(value = "/olamundo/{nome}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public String retornaOla(@PathVariable String nome) {
-
-        Usuario usuario = new Usuario();
-        usuario.setNome(nome);
-        usuarioRepository.save(usuario);
-
-        return "Olá Mundo " + nome;
+    @GetMapping("/form")
+    public String form(){
+        return "index2";
     }
 
-    @GetMapping(value = "listarTodos")
+    @GetMapping(value = "/listar")
     @ResponseBody
     public ResponseEntity<List<Usuario>> listUsuario() {
 

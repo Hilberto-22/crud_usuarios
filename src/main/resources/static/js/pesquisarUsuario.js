@@ -15,10 +15,6 @@ function pesquisarUsuario() {
                             + response[i].id + '</td><td>'
                             + response[i].nome + '</td><td>'
                             + response[i].idade + '</td><td>'
-                            + response[i].nomeMae + '</td><td>'
-                            + response[i].nomeSocial + '</td><td>'
-                            + response[i].nomePai + '</td><td>'
-                            + response[i].sexo + '</td><td>'
                             + response[i].cpf + '</td><td><button type="button" class="btn btn-primary" onclick="editarUsuario(' 
                             + response[i].id + ')">Ver</button></td><td><button type="button" class="btn btn-danger" onclick="deleteUsuario('
                             + response[i].id +')">Excluir</button></td></tr>');
