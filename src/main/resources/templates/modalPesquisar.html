@@ -11,12 +11,16 @@
                         <label for="buscaUsuario" class="col-form-label">Informe o nome para pesquisar:</label>
                         <input type="text" class="form-control" id="buscaUsuario">
                     </div>
-                    <button type="button" class="btn btn-success" onclick="pesquisarUsuario()">Buscar</button>
+                    <button type="button" id="btnBuscar" class="btn btn-success">Buscar</button>
                 </form>
                 <div class="table-responsive">
                     <table class="table mt-2" id="tabelaLista">
                         <thead>
                             <tr>
+								<th scope="col">ID</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Idade</th>
+								<th scope="col" class="text-center">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,4 +34,6 @@
             </div>
         </div>
     </div>
+    <script src="/js/deleteUsuario.js"></script>
+    <script src="/js/editarUsuario.js"></script>
 </div>

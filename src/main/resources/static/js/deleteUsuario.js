@@ -1,4 +1,4 @@
-function deleteUsuario(id) {
+ function deleteUsuario(id) {
     if (confirm('Deseja deletar o usuario?')) {
         $.ajax({
             method: "DELETE",
@@ -8,6 +8,7 @@ function deleteUsuario(id) {
 
                 $('#' + id).remove();
                 alert(response);
+                window.location.reload();
             }
         }).fail(function (xhr, status, errorThrown) {
             alert("Erro ao deletar usuario por id: " + xhr.responseText);
