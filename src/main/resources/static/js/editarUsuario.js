@@ -1,5 +1,4 @@
 function editarUsuario(id) {
-    // Aqui você deve realizar uma requisição AJAX para obter os detalhes do usuário pelo ID
     $.ajax({
         url: '/usuarios/buscarPorId/',
         data: {id: id},

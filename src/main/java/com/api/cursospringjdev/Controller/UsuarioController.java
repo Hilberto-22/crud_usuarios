@@ -51,10 +51,13 @@ public class UsuarioController {
 
 	@ResponseBody
 	@DeleteMapping(value = "delete")
-	public ResponseEntity<String> delete(@RequestParam Long iduser) {
-
-		usuarioRepository.deleteById(iduser);
-		return new ResponseEntity<String>("Usuario deletado com sucesso", HttpStatus.OK);
+	public ResponseEntity<String> delete(@RequestParam(name = "id") Long id) {
+		if (id != null) {
+			this.procuraUsuarioPorId(id);
+			usuarioRepository.deleteById(id);
+			return new ResponseEntity<String>("Usuario deletado com sucesso", HttpStatus.OK);
+		}
+		return null;
 	}
 
 	@ResponseBody
@@ -87,5 +90,11 @@ public class UsuarioController {
 
 		List<Usuario> usuario = usuarioRepository.findByNomeIgnoreCaseContainingOrderByIdAsc(name.trim().toUpperCase());
 		return new ResponseEntity<List<Usuario>>(usuario, HttpStatus.OK);
+	}
+	
+	private Usuario procuraUsuarioPorId(Long id) {
+		Usuario usuario = usuarioRepository.findById(id)
+				.orElseThrow(() -> new UsuarioNotFoundException("Usuário não encontrado no banco de dados"));
+		return usuario;
 	}
 }

@@ -1,17 +1,25 @@
  function deleteUsuario(id) {
-    if (confirm('Deseja deletar o usuario?')) {
+    if (confirm('Deseja deletar o usuário?')) {
         $.ajax({
             method: "DELETE",
             url: "delete",
-            data: "iduser=" + id,
+            data: { id: id },
             success: function (response) {
-
-                $('#' + id).remove();
-                alert(response);
-                window.location.reload();
+                handleDeleteSuccess(id, response);
+            },
+            error: function (xhr, status, errorThrown) {
+                handleDeleteError(xhr);
             }
-        }).fail(function (xhr, status, errorThrown) {
-            alert("Erro ao deletar usuario por id: " + xhr.responseText);
         });
     }
+}
+
+function handleDeleteSuccess(id, response) {
+    $('#' + id).remove();
+    alert(response);
+    window.location.reload();
+}
+
+function handleDeleteError(xhr) {
+    alert("Erro ao deletar usuário por ID: " + xhr.responseText);
 }
