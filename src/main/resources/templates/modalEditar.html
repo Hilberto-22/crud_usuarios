@@ -1,0 +1,36 @@
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Edição de Usuarios</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="card-body">
+				<div class="card">
+					<div class="row">
+						<div class="col-6 px-4 mb-3">
+							<label for="nome" class="form-label">Nome do Usuario</label>
+							<input type="text" class="form-control" id="nomeEdit" placeholder="Maria">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6 px-4 mb-3">
+							<label for="id" class="form-label">Data Nascimento</label>
+							<input type="date" class="form-control" id="dataNascimentoEdit">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6 px-4 mb-3">
+							<label for="idade" class="form-label">Idade</label>
+							<input type="number" class="form-control" id="idadeEdit">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnAtualizar" >Atualizar</button>
+            </div>
+		</div>
+	</div>
+	<script src="/js/editarUsuario.js"></script>
+</div>

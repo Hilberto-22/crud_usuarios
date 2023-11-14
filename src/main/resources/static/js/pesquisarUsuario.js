@@ -1,35 +1,43 @@
 $(document).ready(function() {
-	$('#modal').click(function() {
-		$('#modalPesquisar').modal('show');
+    $('#modal').click(function() {
+        $('#modalPesquisar').modal('show');
 
-		$('#btnBuscar').click(function() {
-			pesquisarUsuario();
-		})
-	})
+        $('#btnBuscar').click(function() {
+            pesquisa();
+        });
+    });
 
-	function pesquisarUsuario() {
-		var nomeCampo = $('#buscaUsuario').val();
-		if (nomeCampo != null && nomeCampo.trim() != '') {
+    function pesquisa() {
+        var nomeCampo = $('#buscaUsuario').val();
+        $.ajax({
+            url: '/usuarios/buscarPorNome/',
+            type: 'GET',
+            data: { name: nomeCampo },
+            success: function(data) {
+                addRows(data);
+            },
+            error: function() {
+                console.error('erro');
+            }
+        });
+    }
 
-			$.ajax({
-				method: "GET",
-				url: "buscarPorNome",
-				data: "name=" + nomeCampo,
-				success: function(response) {
-					$('#tabelaLista > tbody > tr').remove();
-					for (var i = 0; i < response.length; i++) {
-						$('#tabelaLista > tbody')
-							.append('<tr><td>'
-								+ response[i].id + '</td><td>'
-								+ response[i].nome + '</td><td>'
-								+ response[i].idade  + '</td><td><button type="button" class="btn btn-primary" onclick="editarUsuario('
-								+ response[i].id + ')">Editar</button></td><td><button type="button" class="btn btn-danger" onclick="deleteUsuario('
-								+ response[i].id + ')">Excluir</button></td></tr>');
-					}
-				}
-			}).fail(function(xhr, status, errorThrown) {
-				alert("Erro ao salvar usuario: " + xhr.responseText);
-			});
-		}
-	}
-})
+    function addRows(dados) {
+        var tabela = $('#tabelaLista');
+        dados.forEach(dado => {
+            let row = $('<tr>').append(
+				$('<td>').text(dado.id),
+                $('<td>').text(dado.nome),
+                $('<td>').text(dado.dataNascimento).change(),
+                $('<td>').text(dado.idade),
+                $('<td>').append(
+                $('<button>').text('Editar').addClass('btn btn-primary').click(function() {
+                    editarUsuario(dado.id);
+					$('#modalPesquisar').modal('hide');
+                })
+            )
+            );
+            tabela.append(row);
+        });
+    }
+});

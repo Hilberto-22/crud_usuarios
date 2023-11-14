@@ -1,39 +1,44 @@
 <div class="modal fade" id="modalPesquisar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Pesquisa de Usuarios</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="buscaUsuario" class="col-form-label">Informe o nome para pesquisar:</label>
-                        <input type="text" class="form-control" id="buscaUsuario">
-                    </div>
-                    <button type="button" id="btnBuscar" class="btn btn-success">Buscar</button>
-                </form>
-                <div class="table-responsive">
-                    <table class="table mt-2" id="tabelaLista">
-                        <thead>
-                            <tr>
-								<th scope="col">ID</th>
-								<th scope="col">Nome</th>
-								<th scope="col">Idade</th>
-								<th scope="col" class="text-center">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Pesquisa de Usuarios</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="mb-3">
+						<label for="buscaUsuario" class="col-form-label">Informe o nome para pesquisar:</label>
+						<input type="text" class="form-control" id="buscaUsuario">
+					</div>
+					<button type="button" id="btnBuscar" class="btn btn-success">Buscar</button>
+				</form>
+				<div class="card-body">
+					<div class="row">
+						<div class="table-responsive">
+							<table class="table mt-2" id="tabelaLista">
+								<thead>
+									<tr>
+										<th scope="col">ID</th>
+										<th scope="col">Nome</th>
+										<th scope="col">Data Nascimento</th>
+										<th scope="col">Idade</th>
+										<th scope="col" class="text-center">Ações</th>
+									</tr>
+								</thead>
+								<tbody>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-    <script src="/js/deleteUsuario.js"></script>
-    <script src="/js/editarUsuario.js"></script>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+			</div>
+		</div>
+	</div>
+	<script src="/js/deleteUsuario.js"></script>
+	<script src="/js/editarUsuario.js"></script>
 </div>
