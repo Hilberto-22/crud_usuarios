@@ -11,4 +11,8 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 	List<Usuario> findByNomeIgnoreCaseContaining(String name);
+
+	List<Usuario> findByNomeIgnoreCaseContainingOrderByIdAsc(String name);
+	
+	
 }

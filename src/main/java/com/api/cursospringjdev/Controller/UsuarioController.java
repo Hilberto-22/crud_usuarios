@@ -85,7 +85,7 @@ public class UsuarioController {
 	@ResponseBody
 	public ResponseEntity<List<Usuario>> buscarPorNome(@RequestParam(name = "name") String name) {
 
-		List<Usuario> usuario = usuarioRepository.findByNomeIgnoreCaseContaining(name.trim().toUpperCase());
+		List<Usuario> usuario = usuarioRepository.findByNomeIgnoreCaseContainingOrderByIdAsc(name.trim().toUpperCase());
 		return new ResponseEntity<List<Usuario>>(usuario, HttpStatus.OK);
 	}
 }
