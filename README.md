@@ -1,4 +1,4 @@
-# CRUD_Spring_Boot_API
+# Crud de usuarios
 
 Projeto para colocar em pratica os conhecimentos em Java, banco de dados e FronEnd
 
